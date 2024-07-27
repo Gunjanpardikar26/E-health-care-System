@@ -1,0 +1,17 @@
+.App {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  .details {
+    max-width: 400px;
+  }
+  
+  .details p {
+    margin: 10px 0;
+  }
+  
+  .details strong {
+    margin-right: 10px;
+  }
+  
