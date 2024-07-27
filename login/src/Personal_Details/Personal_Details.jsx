@@ -1,4 +1,3 @@
-export default Personal_Details
 import React from 'react';
 import './Personal_Details.css';
 
@@ -35,3 +34,4 @@ function Personal_Details() {
   );
 }
 
+export default Personal_Details;
