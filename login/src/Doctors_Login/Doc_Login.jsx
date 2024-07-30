@@ -21,7 +21,7 @@ const Doc_Login = () => {
       <h2> ID = 1234 PAS = 4321 dale aur patient ki details jane</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>ID:</label>
+          <label>Doctors Prive ID:</label>
           <input
             type="text"
             value={id}
@@ -29,7 +29,7 @@ const Doc_Login = () => {
           />
         </div>
         <div>
-          <label>Password:</label>
+          <label>Patients Adhar Number:</label>
           <input
             type="password"
             value={password}
