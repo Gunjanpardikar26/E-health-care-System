@@ -6,6 +6,8 @@ import New_User from './User_Login_Signup/New_User';
 import Home from './Home_Page/Home';
 import Forms from './Personal_details_form/Forms1';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
+
 function App() {
   // return (
   //   <div >
@@ -13,6 +15,12 @@ function App() {
   //     <Personal_Details/>
   //   </div>
   // );
+    /*const[users,  setUsers] = useState([]);
+    useEffect(()=>{
+      axios.get('https://localhost:4000/getUsers')
+      .then(users => setUsers(users.data))
+      .catch(err => console.log(err));
+    }, []) */
   return (
     <Router>
       <Routes>
