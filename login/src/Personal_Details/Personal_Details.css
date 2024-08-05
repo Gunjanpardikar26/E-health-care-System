@@ -1,17 +1,37 @@
-.App {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-  }
-  
-  .details {
-    max-width: 400px;
-  }
-  
-  .details p {
-    margin: 10px 0;
-  }
-  
-  .details strong {
-    margin-right: 10px;
-  }
-  
+/* Add gradient background to the entire page */
+.containerr {
+  background: linear-gradient(to right, #c8bbe7, #774ed6); /* Purple gradient */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.w-50 {
+  width: 100%;
+  max-width: 800px; /* Max width for better readability */
+}
+
+.user-details {
+  background: #c5c4c4;/* Semi-transparent white background */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.user-details p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.user-details strong {
+  color: #6a1b9a; /* Purple color for labels */
+}
+
+hr {
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid #ddd;
+}

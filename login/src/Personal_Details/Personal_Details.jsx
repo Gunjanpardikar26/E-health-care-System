@@ -35,7 +35,7 @@ function Personal_Details() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="containerr">
       <div className="w-50">
         {users.length > 0 ? (
           users.map(user => (
