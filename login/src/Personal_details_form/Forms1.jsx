@@ -61,7 +61,7 @@ function Forms() {
     };
     
   return (
-    <div className="container">
+    <div className="container1">
         <form onSubmit={collectData}>
           
             <h2 className='text-center pt-3'>PERSONAL INFORMATION</h2> 
