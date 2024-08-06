@@ -17,7 +17,6 @@ function Forms() {
     const[emer_phn1, setEmer_phn1] = useState("");
     const[emer_phn2, setEmer_phn2] = useState("");
     const navigate = useNavigate();
-    //upload adhar function to be implememted in future
 
     const collectData = async(e) =>{
       e.preventDefault();
@@ -25,7 +24,6 @@ function Forms() {
       try {
         let result = await fetch('http://localhost:4000/api/register', {
           method: 'POST',
-          //body: JSON.stringify({name:fname, email, password}),
           body: JSON.stringify({
             fname,
             lname,

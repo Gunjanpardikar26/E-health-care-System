@@ -1,12 +1,6 @@
 const mongoose = require('mongoose')
 
 const LoginSchema = new mongoose.Schema({
-    /*name:String,
-    // mname:String,
-    // lname:String,
-    email:String,
-    password:String*/
-
     fname: { type: String, required: true },
     lname: { type: String, required: true },
     mname: { type: String },
