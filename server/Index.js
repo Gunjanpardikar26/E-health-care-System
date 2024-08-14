@@ -10,6 +10,7 @@ app.use(cors({
 require('./db/connection');
 
 const Users = require('./Models/User');
+const doctor = require('./Models/Doctor');
 
 app.post("/api/register", async (req, res) => {
   try {
@@ -43,7 +44,6 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-
 // In your Express server file
 app.get('/api/user/:adh', async (req, res) => {
   const { adh } = req.params;
@@ -58,9 +58,6 @@ app.get('/api/user/:adh', async (req, res) => {
   }
 });
 
-
-
-
 app.get("/getUsers",(req,res) => {
     Users.find()
     .then(users => {
@@ -73,7 +70,23 @@ app.get("/getUsers",(req,res) => {
       });
 });
 
+app.post('/api/doctor/login', async (req, res) => {
+  const { doctorId, password } = req.body;
+
+  try {
+    const doc = await Doctor.findOne({ doctorId, password });
+    if (doc) {
+      res.status(200).json({ message: 'Login successful' });
+    } else {
+      res.status(401).json({ message: 'Invalid credentials' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+

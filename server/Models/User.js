@@ -15,4 +15,14 @@ const LoginSchema = new mongoose.Schema({
     emer_phn2: { type: Number },
 });
 
+
+app.use(bodyParser.json());
+
+// Doctor Schema
+const doctorSchema = new mongoose.Schema({
+  doctorId: String,
+  password: String,
+});
+
 module.exports = mongoose.model("users",LoginSchema);
+module.exports = mongoose.model("Doctor",doctorSchema);

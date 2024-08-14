@@ -1,27 +1,43 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Doc_Login = () => {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
+  const [adh, setAdh] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    if (id === '1234' && password === '4321') {
+    
+    try {
+    // Authenticate doctor
+    const response = await axios.post('http://localhost:4000/api/doctor/login', {
+      doctorId: id,
+      password: password,
+    });
+
+    if (response.status === 200) {
+      // Save Aadhaar number to local storage
+      localStorage.setItem('User', JSON.stringify({ adh }));
+      // Navigate to personal details page
       navigate('/personal-details');
     } else {
       alert('Invalid credentials');
     }
-  };
+  } catch (error) {
+    console.error('Login error:', error);
+    alert('Invalid credentials');
+  }
+};
 
   return (
     <div>
-      <h1>Doctor sahab ye login aapke liye hai</h1>
-      <h2> ID = 1234 PAS = 4321 dale aur patient ki details jane</h2>
+      <h1>Doctor Login</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Doctors Prive ID:</label>
+          <label>Doctor's Private ID:</label>
           <input
             type="text"
             value={id}
@@ -29,11 +45,19 @@ const Doc_Login = () => {
           />
         </div>
         <div>
-          <label>Patients Adhar Number:</label>
+          <label>Password:</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>Patient's Aadhaar Number:</label>
+          <input
+            type="text"
+            value={adh}
+            onChange={(e) => setAdh(e.target.value)}
           />
         </div>
         <button type="submit">Login</button>
