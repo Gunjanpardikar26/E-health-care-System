@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const LoginSchema = new mongoose.Schema({
     fname: { type: String, required: true },
@@ -16,13 +16,6 @@ const LoginSchema = new mongoose.Schema({
 });
 
 
-app.use(bodyParser.json());
 
-// Doctor Schema
-const doctorSchema = new mongoose.Schema({
-  doctorId: String,
-  password: String,
-});
 
 module.exports = mongoose.model("users",LoginSchema);
-module.exports = mongoose.model("Doctor",doctorSchema);

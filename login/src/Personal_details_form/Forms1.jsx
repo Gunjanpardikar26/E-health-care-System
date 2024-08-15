@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Forms.css'
 import { useNavigate } from 'react-router-dom';
-// import Personal_Details from './Personal_Details/Personal_Details';
 
 function Forms() {
     const [fname,setFname] = useState("");

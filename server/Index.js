@@ -44,7 +44,7 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-// In your Express server file
+
 app.get('/api/user/:adh', async (req, res) => {
   const { adh } = req.params;
   try {

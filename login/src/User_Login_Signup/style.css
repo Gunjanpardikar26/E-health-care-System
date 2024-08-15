@@ -1,3 +1,4 @@
+/*
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 *{
@@ -15,7 +16,6 @@
     justify-content: center;
     flex-direction: column;
     height: 100vh;
-    /* max-width:100%; */
 }
 
 .container{
@@ -25,9 +25,6 @@
     position: absolute;
     overflow: hidden;
     width: 60%;
-    /* width: 768px; */
-    /* max-width: 100%; */
-    /* min-width: 600px; */
     min-height: 500px;
 }
 
@@ -211,3 +208,5 @@
 .container.active .toggle-right{
     transform: translateX(200%);
 }
+
+*/

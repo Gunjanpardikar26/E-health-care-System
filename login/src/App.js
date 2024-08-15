@@ -5,6 +5,7 @@ import User_Login from './User_Login_Signup/User_Login';
 import New_User from './User_Login_Signup/New_User';
 import Home from './Home_Page/Home';
 import Forms from './Personal_details_form/Forms1';
+import New_Doc from './Doctors_Login/New_Doc';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 
@@ -28,6 +29,7 @@ function App() {
       <Route path="/login-user" element={<User_Login />} />
       <Route path='/new-user' element = {<Forms/>} />
       <Route path='/login-doc' element = {<Doc_Login/>} />
+      <Route path='/new-doc' element = {<New_Doc/>} />
       <Route path='/' element={<Home/>} />
       </Routes>
     </Router>
