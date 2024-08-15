@@ -59,7 +59,7 @@
                   <div className="user-details">
                 <p><strong>Name:</strong> {user.fname} {user.mname} {user.lname}</p>
                 <p><strong>Email:</strong> {user.email}</p>
-                <p><strong>Password:</strong> {user.password}</p>
+                {/* <p><strong>Password:</strong> {user.password}</p> */}
                 <p><strong>Date of Birth:</strong> {new Date(user.dob).toLocaleDateString()}</p>
                 <p><strong>Gender:</strong> {user.gender}</p>
                 <p><strong>Personal Phone Number:</strong> {user.per_phn}</p>
