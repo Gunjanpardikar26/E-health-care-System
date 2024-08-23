@@ -13,7 +13,7 @@ const Doc_Login = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/doctor/login",
+        "http://localhost:4000/api/login_doctor",
         {
           doctorId: id,
           password: password,
@@ -69,33 +69,33 @@ const Doc_Login = () => {
             </div>
             {/* <!-- Doctors Private-ID input --> */}
             <div data-mdb-input-init className="form-outline mb-4">
-              <input type="text" id="form3Example3" className="form-control form-control-lg"
+              <input type="text" className="form-control form-control-lg"
                 placeholder="Enter Doctors Private-ID" value={id} 
                     onChange={(e) => setId(e.target.value)}/>
-              <label className="form-label" for="form3Example3">Doctors Private-ID</label>
+              <label className="form-label">Doctors Private-ID</label>
             </div>
 
             {/* <!-- Patient Adhar input --> */}
             <div data-mdb-input-init className="form-outline mb-4">
-              <input type="text" id="form3Example3" className="form-control form-control-lg"
+              <input type="text" className="form-control form-control-lg"
                 placeholder="Enter Patient's Adhar Number" value={adh} 
                     onChange={(e) => setAdh(e.target.value)}/>
-              <label className="form-label" for="form3Example3">Patient's Adhar Number</label>
+              <label className="form-label" >Patient's Adhar Number</label>
             </div>
   
             {/* <!-- Password input --> */}
             <div data-mdb-input-init className="form-outline mb-3">
-              <input type="password" id="form3Example4" className="form-control form-control-lg"
+              <input type="current-password" className="form-control form-control-lg"
                 placeholder="Enter password" value={password}
                     onChange={(e) => setPassword(e.target.value)}/>
-              <label className="form-label" for="form3Example4">Password</label>
+              <label className="form-label" >Password</label>
             </div>
   
             <div className="d-flex justify-content-between align-items-center">
               {/* <!-- Checkbox --> */}
               <div className="form-check mb-0">
-                <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                <label className="form-check-label" for="form2Example3">
+                <input className="form-check-input me-2" type="checkbox" value="" />
+                <label className="form-check-label" >
                   Remember me
                 </label>
               </div>

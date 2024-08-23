@@ -2,8 +2,13 @@ const mongoose = require('mongoose')
 
 // Doctor Schema
 const doctorSchema = new mongoose.Schema({
-  doctorId: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
+    dname: { type: String, required: true },
+    honame: { type: String, required: true },
+    por: { type: String, required: true },
+    ho_add: { type: Date, required: true },
+    uni_id: { type: String, required: true },
+    password: { type: String, required: true },
+    per_phn: { type: Number, required: true },
 });
 
 

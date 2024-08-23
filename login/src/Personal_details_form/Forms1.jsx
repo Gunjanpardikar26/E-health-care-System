@@ -21,7 +21,7 @@ function Forms() {
       e.preventDefault();
       
       try {
-        let result = await fetch('http://localhost:4000/api/register', {
+        let result = await fetch('http://localhost:4000/api/register_user', {
           method: 'POST',
           body: JSON.stringify({
             fname,
@@ -53,8 +53,6 @@ function Forms() {
       } catch (error) {
         console.error('Error:', error);
       }
-        
-      
     };
     
   return (

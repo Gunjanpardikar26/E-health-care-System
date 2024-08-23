@@ -9,10 +9,13 @@ app.use(cors({
 
 require('./db/connection');
 
-const Users = require('./Models/User');
-const doctor = require('./Models/Doctor');
 
-app.post("/api/register", async (req, res) => {
+const Users = require('./Models/User');
+const Doctor = require('./Models/Doctor');
+
+
+//API to register new user in the users database
+app.post("/api/register_user", async (req, res) => {
   try {
     const userData = req.body;
     const user = new Users(userData);
@@ -24,6 +27,22 @@ app.post("/api/register", async (req, res) => {
   }
 });
 
+
+//API to register new doctor in the doctors database
+app.post("/api/register_doc", async (req, res) => {
+  try {
+    const docData = req.body;
+    const doc = new Doctor(docData);
+    const savedDoctor = await doc.save();
+    res.status(201).json(savedDoctor);
+  } catch (error) {
+    console.error('Error saving user:', error);
+    res.status(500).json({ error: 'Failed to create user' });
+  }
+});
+
+
+//API to login user
 app.post('/api/login', async (req, res) => {
   try {
     const { adh, password } = req.body;
@@ -45,32 +64,8 @@ app.post('/api/login', async (req, res) => {
 });
 
 
-app.get('/api/user/:adh', async (req, res) => {
-  const { adh } = req.params;
-  try {
-    const user = await Users.findOne({ adh: adh });
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
-    }
-    res.json(user);
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
-  }
-});
-
-app.get("/getUsers",(req,res) => {
-    Users.find()
-    .then(users => {
-        console.log('Users fetched:', users); // Log users to verify data
-        res.json(users);
-      })
-    .catch(err => {
-        console.error('Error fetching users:', err);
-        res.status(500).json({ error: 'Failed to fetch users' });
-      });
-});
-
-app.post('/api/doctor/login', async (req, res) => {
+//API to login doctor
+app.post('/api/login_doctor', async (req, res) => {
   const { doctorId, password } = req.body;
 
   try {
@@ -84,6 +79,37 @@ app.post('/api/doctor/login', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
+
+
+
+app.get('/api/user/:adh', async (req, res) => {
+  const { adh } = req.params;
+  try {
+    const user = await Users.findOne({ adh: adh });
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+
+//API to run a query in users data
+app.get("/getUsers",(req,res) => {
+    Users.find()
+    .then(users => {
+        console.log('Users fetched:', users); // Log users to verify data
+        res.json(users);
+      })
+    .catch(err => {
+        console.error('Error fetching users:', err);
+        res.status(500).json({ error: 'Failed to fetch users' });
+      });
+});
+
+
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {

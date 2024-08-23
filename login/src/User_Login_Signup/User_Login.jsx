@@ -70,25 +70,25 @@ function User_Login() {
   
             {/* <!-- Email input --> */}
             <div data-mdb-input-init className="form-outline mb-4">
-              <input type="text" id="form3Example3" className="form-control form-control-lg"
+              <input type="text"  className="form-control form-control-lg"
                 placeholder="Enter a valid Adhar Number" value={userId}
                 onChange={(e) => setUserId(e.target.value)}/>
-              <label className="form-label" for="form3Example3">Adhar Number</label>
+              <label className="form-label" >Adhar Number</label>
             </div>
   
             {/* <!-- Password input --> */}
             <div data-mdb-input-init className="form-outline mb-3">
-              <input type="password" id="form3Example4" className="form-control form-control-lg"
+              <input type="current-password"  className="form-control form-control-lg"
                 placeholder="Enter password" value={password}
                 onChange={(e) => setPassword(e.target.value)}/>
-              <label className="form-label" for="form3Example4">Password</label>
+              <label className="form-label" >Password</label>
             </div>
   
             <div className="d-flex justify-content-between align-items-center">
               {/* <!-- Checkbox --> */}
               <div className="form-check mb-0">
                 <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                <label className="form-check-label" for="form2Example3">
+                <label className="form-check-label" >
                   Remember me
                 </label>
               </div>
