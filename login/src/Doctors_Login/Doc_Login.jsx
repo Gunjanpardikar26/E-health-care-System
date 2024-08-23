@@ -10,16 +10,17 @@ const Doc_Login = () => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-
+  
     try {
       const response = await axios.post(
         "http://localhost:4000/api/login_doctor",
         {
-          doctorId: id,
-          password: password,
+          uni_id : id,
+          pass: password,
+          adh: adh, // Ensure this matches what your server expects
         }
       );
-
+  
       if (response.status === 200) {
         // Save Aadhaar number to local storage
         localStorage.setItem("User", JSON.stringify({ adh }));
@@ -32,6 +33,7 @@ const Doc_Login = () => {
       alert("Invalid credentials");
     }
   };
+
 
   const handleSignup = (event) => {
     event.preventDefault();
