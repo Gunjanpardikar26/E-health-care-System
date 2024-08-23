@@ -66,19 +66,23 @@ app.post('/api/login', async (req, res) => {
 
 //API to login doctor
 app.post('/api/login_doctor', async (req, res) => {
-  const { doctorId, password } = req.body;
+  const { uni_id, pass, adh } = req.body;
 
   try {
-    const doc = await Doctor.findOne({ doctorId, password });
-    if (doc) {
-      res.status(200).json({ message: 'Login successful' });
+    const doc = await Doctor.findOne({ uni_id, pass });
+    const user = await Users.findOne({ adh: adh });
+
+    if (doc && user) {
+      res.status(200).json({ message: 'Login successful', user });
     } else {
       res.status(401).json({ message: 'Invalid credentials' });
     }
   } catch (error) {
+    console.error('Error during login:', error);
     res.status(500).json({ message: 'Server error' });
   }
 });
+
 
 
 

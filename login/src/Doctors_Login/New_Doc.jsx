@@ -12,10 +12,9 @@ function New_Doc() {
   const[per_phn, setPer_phn] = useState(""); //phone number
   const navigate = useNavigate();
   
-  const collectData = async(e) =>{
+  const collectData = async (e) => {
     e.preventDefault();
-    
-    //write the api's here
+
     try {
       let result = await fetch('http://localhost:4000/api/register_doc', {
         method: 'POST',
@@ -31,22 +30,19 @@ function New_Doc() {
         headers: {
           'Content-Type': 'application/json',
         },
-        
       });
-  
+
       if (!result.ok) {
         throw new Error('Network response was not ok');
       }
-      
-      result = await result.json(); // Corrected the response parsing
+
+      result = await result.json();
       localStorage.setItem("Doc", JSON.stringify(result));
-      navigate('/personal-details');
+      navigate('/login-doc');
     } catch (error) {
       console.error('Error:', error);
     }
-
   };
-  
 
     
   return (
