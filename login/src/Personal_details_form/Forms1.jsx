@@ -96,8 +96,6 @@ function Forms() {
             <br />
             <input
               type="date"
-              // onChange={handleChange}
-              // ref={dateInputRef}
               value={dob}
               onChange={(e) =>setDob(e.target.value)}
             />
